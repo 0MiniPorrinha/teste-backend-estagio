@@ -1,6 +1,8 @@
 package com.hugo.testebackendestagio.entities;
 
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.UUID;
 
 import javax.persistence.CascadeType;
@@ -10,6 +12,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -26,6 +29,11 @@ public class Equipment implements Serializable{
     @JoinColumn(name = "equipment_model_id", nullable = false)
     private EquipmentModel equipmentModel;
 
+    @OneToMany
+    private Set<EquipmentPositionHistory> equipmentPositionHistories = new HashSet<>();
+
+    @OneToMany
+    private Set<EquipmentStateHistory> equipmentStateHistories = new HashSet<>();
 
     public Equipment(){
     }

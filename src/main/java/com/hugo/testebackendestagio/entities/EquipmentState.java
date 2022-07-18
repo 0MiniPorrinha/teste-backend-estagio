@@ -1,8 +1,8 @@
 package com.hugo.testebackendestagio.entities;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.UUID;
 
 import javax.persistence.Entity;
@@ -24,10 +24,10 @@ public class EquipmentState implements Serializable{
     private String color;
 
     @OneToMany
-    private List<EquipmentStateHistory> equipmentStateHistories = new ArrayList<>();
+    private Set<EquipmentStateHistory> equipmentStateHistories = new HashSet<>();
 
     @OneToMany
-    private List<EquipmentModelStateHourlyEarnings> equipmentModelStateHourlyEarnings = new ArrayList<>();
+    private Set<EquipmentModelStateHourlyEarnings> equipmentModelStateHourlyEarnings = new HashSet<>();
 
     public EquipmentState(){
     }
