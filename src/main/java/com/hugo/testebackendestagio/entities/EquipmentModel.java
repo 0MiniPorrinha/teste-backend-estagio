@@ -3,6 +3,7 @@ package com.hugo.testebackendestagio.entities;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -15,7 +16,7 @@ public class EquipmentModel implements Serializable{
     private static final long serialVersionUID = 1L;
     
     @Id
-    private String id;
+    private UUID id;
     private String name;
 
     @OneToMany
@@ -27,16 +28,16 @@ public class EquipmentModel implements Serializable{
     public EquipmentModel(){
     }
 
-    public EquipmentModel(String id, String name) {
+    public EquipmentModel(UUID id, String name) {
         this.id = id;
         this.name = name;
     }
 
-    public String getId() {
+    public UUID getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(UUID id) {
         this.id = id;
     }
 

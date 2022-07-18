@@ -3,6 +3,7 @@ package com.hugo.testebackendestagio.entities;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -21,7 +22,7 @@ public class Equipment implements Serializable{
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private String id;
+    private UUID id;
     private String name;
 
     @ManyToOne(cascade = CascadeType.ALL)
@@ -37,16 +38,17 @@ public class Equipment implements Serializable{
     public Equipment(){
     }
 
-    public Equipment(String id, String name) {
+    public Equipment(UUID id, String name, EquipmentModel equipmentModel) {
         this.id = id;
         this.name = name;
+        this.equipmentModel = equipmentModel;
     }
 
-    public String getId() {
+    public UUID getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(UUID id) {
         this.id = id;
     }
 

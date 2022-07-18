@@ -3,6 +3,7 @@ package com.hugo.testebackendestagio.entities;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -18,7 +19,7 @@ public class EquipmentState implements Serializable{
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private String id;
+    private UUID id;
     private String name;
     private String color;
 
@@ -31,17 +32,17 @@ public class EquipmentState implements Serializable{
     public EquipmentState(){
     }
 
-    public EquipmentState(String id, String name, String color) {
+    public EquipmentState(UUID id, String name, String color) {
         this.id = id;
         this.name = name;
         this.color = color;
     }
 
-    public String getId() {
+    public UUID getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(UUID id) {
         this.id = id;
     }
 
