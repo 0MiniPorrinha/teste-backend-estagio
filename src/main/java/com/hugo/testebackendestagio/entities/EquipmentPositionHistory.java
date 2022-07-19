@@ -14,13 +14,13 @@ import com.hugo.testebackendestagio.entities.pk.EquipmentPositionHistoryPK;
 public class EquipmentPositionHistory implements Serializable{
     private static final long serialVersionUID = 1L;
     
+    @EmbeddedId
+    private EquipmentPositionHistoryPK id = new EquipmentPositionHistoryPK();
+
     private Date date;
     private float lat;
     private float lon;
 
-    @EmbeddedId
-    private EquipmentPositionHistoryPK id = new EquipmentPositionHistoryPK();
-    
     public EquipmentPositionHistory() {
     }
 

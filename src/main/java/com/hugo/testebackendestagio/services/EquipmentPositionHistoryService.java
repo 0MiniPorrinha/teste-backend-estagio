@@ -22,6 +22,7 @@ public class EquipmentPositionHistoryService {
     @Autowired
     private EquipmentService equipmentService;
 
+
     public List<EquipmentPositionHistory> findAll(){
         return repository.findAll();
     }
@@ -31,5 +32,12 @@ public class EquipmentPositionHistoryService {
         EquipmentPositionHistoryPK id = new EquipmentPositionHistoryPK(equipment);
         Optional<EquipmentPositionHistory> obj = repository.findById(id);
         return obj.orElseThrow(() -> new ResourceNotFoundException(id));
+    }
+
+    public List<EquipmentPositionHistory> findAllById(UUID id_equip){
+        Equipment equipment = equipmentService.findById(id_equip);
+        
+
+        return repository.findByIdEquipmentId(equipment.getId());
     }
 }

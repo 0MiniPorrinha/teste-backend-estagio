@@ -26,13 +26,13 @@ public class Equipment implements Serializable{
     private String name;
 
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "equipment_model_id", nullable = false)
+    @JoinColumn(name = "equipment_model_id")
     private EquipmentModel equipmentModel;
 
-    @OneToMany
+    @OneToMany(orphanRemoval = true, cascade = CascadeType.REMOVE)
     private Set<EquipmentPositionHistory> equipmentPositionHistories = new HashSet<>();
 
-    @OneToMany
+    @OneToMany(orphanRemoval = true, cascade = CascadeType.REMOVE)
     private Set<EquipmentStateHistory> equipmentStateHistories = new HashSet<>();
 
     public Equipment(){
@@ -43,14 +43,9 @@ public class Equipment implements Serializable{
         this.name = name;
         this.equipmentModel = equipmentModel;
     }
-
-    public Equipment(Equipment equipment){
+    public Equipment( Equipment equipment,EquipmentModel equipmentModel){
         id = equipment.getId();
         name = equipment.getName();
-    }
-
-    public Equipment( Equipment equipment,EquipmentModel equipmentModel){
-        this(equipment);
         this.equipmentModel = equipmentModel;
     } 
 
