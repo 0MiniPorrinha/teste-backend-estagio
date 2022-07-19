@@ -12,7 +12,6 @@ import com.hugo.testebackendestagio.entities.EquipmentPositionHistory;
 import com.hugo.testebackendestagio.entities.pk.EquipmentPositionHistoryPK;
 import com.hugo.testebackendestagio.exceptions.ResourceNotFoundException;
 import com.hugo.testebackendestagio.repositories.EquipmentPositionHistoryRepository;
-import com.hugo.testebackendestagio.repositories.EquipmentRepository;
 
 @Service
 public class EquipmentPositionHistoryService {
@@ -21,16 +20,16 @@ public class EquipmentPositionHistoryService {
     private EquipmentPositionHistoryRepository repository;
 
     @Autowired
-    private EquipmentRepository equipmentRepository;
+    private EquipmentService equipmentService;
 
     public List<EquipmentPositionHistory> findAll(){
         return repository.findAll();
     }
 
     public EquipmentPositionHistory findById(UUID id_equip){
-        Equipment equipment = equipmentRepository.findById(id_equip).get();
+        Equipment equipment = equipmentService.findById(id_equip);
         EquipmentPositionHistoryPK id = new EquipmentPositionHistoryPK(equipment);
         Optional<EquipmentPositionHistory> obj = repository.findById(id);
-        return obj.orElseThrow(() -> new ResourceNotFoundException(id_equip));
+        return obj.orElseThrow(() -> new ResourceNotFoundException(id));
     }
 }

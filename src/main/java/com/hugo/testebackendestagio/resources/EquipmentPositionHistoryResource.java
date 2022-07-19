@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.hugo.testebackendestagio.entities.EquipmentPositionHistory;
 import com.hugo.testebackendestagio.services.EquipmentPositionHistoryService;
-import com.hugo.testebackendestagio.services.EquipmentService;
 
 @RestController
 @RequestMapping(value = "positions")
@@ -26,7 +25,7 @@ public class EquipmentPositionHistoryResource {
         return ResponseEntity.ok(list);
     }
 
-    @GetMapping(value = "/{id}")
+    @GetMapping(value = "/{id_equip}")
     public ResponseEntity<EquipmentPositionHistory> findById(UUID id_equip){
         EquipmentPositionHistory equipmentPositionHistory = service.findById(id_equip);
         return ResponseEntity.ok(equipmentPositionHistory);
