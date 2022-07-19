@@ -44,6 +44,17 @@ public class Equipment implements Serializable{
         this.equipmentModel = equipmentModel;
     }
 
+    public Equipment(Equipment equipment){
+        id = equipment.getId();
+        name = equipment.getName();
+    }
+
+    public Equipment( Equipment equipment,EquipmentModel equipmentModel){
+        this(equipment);
+        this.equipmentModel = equipmentModel;
+    } 
+
+
     public UUID getId() {
         return id;
     }
@@ -58,6 +69,15 @@ public class Equipment implements Serializable{
 
     public void setName(String name) {
         this.name = name;
+    }
+
+
+    public EquipmentModel getEquipmentModel() {
+        return equipmentModel;
+    }
+
+    public void setEquipmentModel(EquipmentModel equipmentModel) {
+        this.equipmentModel = equipmentModel;
     }
 
     @Override
