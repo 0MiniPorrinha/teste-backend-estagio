@@ -32,12 +32,10 @@ public class EquipmentStateHistoryService {
         return repository.findAll();
     }
 
-    public EquipmentStateHistory findById(UUID id_equip, UUID id_state){
+    public List<EquipmentStateHistory> findById(UUID id_equip, UUID id_state){
         Equipment equipment = equipmentRepository.findById(id_equip).get();
         EquipmentState equipmentState = equipmentStateRepository.findById(id_state).get();
-        EquipmentStateHistoryPK id = new EquipmentStateHistoryPK(equipment, equipmentState);
-        Optional<EquipmentStateHistory> obj = repository.findById(id);
 
-        return obj.orElseThrow(() -> new ResourceNotFoundException(id));
+        return repository.findByIdEquipmentAndIdEquipmentState(equipment, equipmentState);
     }
 }

@@ -14,7 +14,6 @@ import com.hugo.testebackendestagio.entities.pk.EquipmentStateHistoryPK;
 public class EquipmentStateHistory implements Serializable{
     private static final long serialVersionUID = 1L;
     
-    private Date date;
 
     @EmbeddedId
     private EquipmentStateHistoryPK id = new EquipmentStateHistoryPK();
@@ -23,17 +22,9 @@ public class EquipmentStateHistory implements Serializable{
     }
 
     public EquipmentStateHistory(Date date, Equipment equipment, EquipmentState equipmentState) {
-        this.date = date;
+        id.setDate(date);
         id.setEquipment(equipment);
         id.setEquipmentState(equipmentState);
-    }
-
-    public Date getDate() {
-        return date;
-    }
-
-    public void setDate(Date date) {
-        this.date = date;
     }
 
     public Equipment getEquipment() {

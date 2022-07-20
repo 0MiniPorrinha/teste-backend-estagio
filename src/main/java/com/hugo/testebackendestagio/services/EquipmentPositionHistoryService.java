@@ -27,14 +27,14 @@ public class EquipmentPositionHistoryService {
         return repository.findAll();
     }
 
-    /*public EquipmentPositionHistory findById(UUID id_equip){
-        Equipment equipment = equipmentService.findById(id_equip);
+    public List<EquipmentPositionHistory> findById(UUID id_equip){
+        /*Equipment equipment = equipmentService.findById(id_equip);
         EquipmentPositionHistoryPK id = new EquipmentPositionHistoryPK(equipment);
-        Optional<EquipmentPositionHistory> obj = repository.findById(id);
-        return obj.orElseThrow(() -> new ResourceNotFoundException(id));
+        Optional<EquipmentPositionHistory> obj = repository.findById(id);*/
+        return repository.findByIdEquipmentId(id_equip);
     }
 
-    public List<EquipmentPositionHistory> findAllById(UUID id_equip){
+    /*public List<EquipmentPositionHistory> findAllById(UUID id_equip){
         Equipment equipment = equipmentService.findById(id_equip);
         
 
