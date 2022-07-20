@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.hugo.testebackendestagio.entities.Equipment;
+import com.hugo.testebackendestagio.entities.EquipmentModel;
+import com.hugo.testebackendestagio.entities.dto.EquipmentDTO;
 import com.hugo.testebackendestagio.exceptions.ResourceNotFoundException;
 import com.hugo.testebackendestagio.repositories.EquipmentRepository;
 
@@ -17,6 +19,9 @@ public class EquipmentService {
     
     @Autowired
     private EquipmentRepository repository;
+
+    @Autowired
+    private EquipmentModelService equipmentModelService;
 
     public List<Equipment> findAll(){
         return  repository
@@ -30,7 +35,9 @@ public class EquipmentService {
         return equipment.orElseThrow(() -> new ResourceNotFoundException(id));
     }
 
-    public Equipment insert(Equipment equipment){
+    public Equipment insert(EquipmentDTO equipmentDTO){
+        EquipmentModel equipmentModel = equipmentModelService.findById(equipmentDTO.getEquipmentModelId());
+        Equipment equipment = new Equipment(null, equipmentDTO.getName(), equipmentModel);
         return repository.save(equipment);
     }
 }

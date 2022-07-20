@@ -18,18 +18,19 @@ public class EquipmentPositionHistory implements Serializable{
     private EquipmentPositionHistoryPK id = new EquipmentPositionHistoryPK();
 
     private Date date;
-    private float lat;
-    private float lon;
+    private Float lat;
+    private Float lon;
 
     public EquipmentPositionHistory() {
     }
 
-    public EquipmentPositionHistory(Date date, float lat, float lon, Equipment equipment) {
+    public EquipmentPositionHistory(Date date, Float lat, Float lon, Equipment equipment) {
+        id.setEquipment(equipment);
         this.date = date;
         this.lat = lat;
         this.lon = lon;
-        id.setEquipment(equipment);
     }
+
 
     public Date getDate() {
         return date;
@@ -39,19 +40,19 @@ public class EquipmentPositionHistory implements Serializable{
         this.date = date;
     }
 
-    public float getLat() {
+    public Float getLat() {
         return lat;
     }
 
-    public void setLat(float lat) {
+    public void setLat(Float lat) {
         this.lat = lat;
     }
 
-    public float getLon() {
+    public Float getLon() {
         return lon;
     }
 
-    public void setLon(float lon) {
+    public void setLon(Float lon) {
         this.lon = lon;
     }
 
@@ -62,4 +63,5 @@ public class EquipmentPositionHistory implements Serializable{
     public void setEquipment(Equipment equipment) {
         id.setEquipment(equipment);
     }
+     
 }

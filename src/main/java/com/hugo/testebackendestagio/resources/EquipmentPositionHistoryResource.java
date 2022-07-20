@@ -26,7 +26,7 @@ public class EquipmentPositionHistoryResource {
         return ResponseEntity.ok(list);
     }
 
-    @GetMapping(value = "/{id_equip}")
+    /*@GetMapping(value = "/{id_equip}")
     public ResponseEntity<EquipmentPositionHistory> findById(@PathVariable UUID id_equip){
         EquipmentPositionHistory equipmentPositionHistory = service.findById(id_equip);
         return ResponseEntity.ok(equipmentPositionHistory);
@@ -36,5 +36,5 @@ public class EquipmentPositionHistoryResource {
     public ResponseEntity<List<EquipmentPositionHistory>> findAllById(@PathVariable UUID id_equip){
         List<EquipmentPositionHistory> list = service.findAllById(id_equip);
         return ResponseEntity.ok(list);
-    }
+    }*/
 }

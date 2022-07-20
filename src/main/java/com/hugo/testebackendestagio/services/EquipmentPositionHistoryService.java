@@ -27,7 +27,7 @@ public class EquipmentPositionHistoryService {
         return repository.findAll();
     }
 
-    public EquipmentPositionHistory findById(UUID id_equip){
+    /*public EquipmentPositionHistory findById(UUID id_equip){
         Equipment equipment = equipmentService.findById(id_equip);
         EquipmentPositionHistoryPK id = new EquipmentPositionHistoryPK(equipment);
         Optional<EquipmentPositionHistory> obj = repository.findById(id);
@@ -39,5 +39,5 @@ public class EquipmentPositionHistoryService {
         
 
         return repository.findByIdEquipmentId(equipment.getId());
-    }
+    }*/
 }

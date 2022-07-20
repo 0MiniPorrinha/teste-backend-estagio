@@ -49,6 +49,10 @@ public class Equipment implements Serializable{
         this.equipmentModel = equipmentModel;
     } 
 
+    public Equipment(Equipment equipment){
+        id = equipment.getId();
+        name = equipment.getName();
+    }
 
     public UUID getId() {
         return id;
