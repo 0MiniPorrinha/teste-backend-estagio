@@ -17,7 +17,6 @@ public class EquipmentPositionHistoryPK implements Serializable{
     @ManyToOne
     @JoinColumn(name = "equipment_id")
     private Equipment equipment;
-
     @Column(name = "date")
     private Date date;
     @Column(name = "lat")
